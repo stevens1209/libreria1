@@ -40,7 +40,8 @@ public class ClienteTest {
         cliente.setDireccion("Lumbisi");
         cliente.setTelefono("03446541");
         cliente.setCorreo("Mx@ismac.edu.ec");
-
+        cliente.setCorreo("Mx@ismac.edu.ec");
+// comentario
 
 
 
