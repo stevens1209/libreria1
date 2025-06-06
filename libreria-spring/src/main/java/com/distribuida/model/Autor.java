@@ -1,93 +1,123 @@
 package com.distribuida.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "autor")
+
+
+
 public class Autor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_autor")
     private int idAutor;
-    private String Nombre;
-    private String Apellido;
-    private String Pais;
-    private String Direccion;
-    private String Telefono;
-    private String Correo;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "apellido")
+    private String apellido;
+    @Column(name = "pais")
+    private String pais;
+    @Column(name = "direccion")
+    private String direccion;
+    @Column(name = "telefono")
+    private String telefono;
+    @Column(name = "correo")
+    private String correo;
 
     public Autor() {
     }
 
     public Autor(int idAutor, String nombre, String apellido, String pais, String direccion, String telefono, String correo) {
         this.idAutor = idAutor;
-        Nombre = nombre;
-        Apellido = apellido;
-        Pais = pais;
-        Direccion = direccion;
-        Telefono = telefono;
-        Correo = correo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.pais = pais;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.correo = correo;
     }
 
     public int getIdAutor() {
+
         return idAutor;
     }
 
     public void setIdAutor(int idAutor) {
+
         this.idAutor = idAutor;
     }
 
     public String getNombre() {
-        return Nombre;
+
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+
+        this.nombre = nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+
+        return apellido;
     }
 
     public void setApellido(String apellido) {
-        Apellido = apellido;
+
+        this.apellido = apellido;
     }
 
     public String getPais() {
-        return Pais;
+
+        return pais;
     }
 
     public void setPais(String pais) {
-        Pais = pais;
+
+        this.pais = pais;
     }
 
     public String getDireccion() {
-        return Direccion;
+
+        return direccion;
     }
 
     public void setDireccion(String direccion) {
-        Direccion = direccion;
+
+        this.direccion = direccion;
     }
 
     public String getTelefono() {
-        return Telefono;
+
+        return telefono;
     }
 
     public void setTelefono(String telefono) {
-        Telefono = telefono;
+
+        this.telefono = telefono;
     }
 
     public String getCorreo() {
-        return Correo;
+
+        return correo;
     }
 
     public void setCorreo(String correo) {
-        Correo = correo;
+
+        this.correo = correo;
     }
 
     @Override
     public String toString() {
         return "Autor{" +
                 "idAutor=" + idAutor +
-                ", Nombre='" + Nombre + '\'' +
-                ", Apellido='" + Apellido + '\'' +
-                ", Pais='" + Pais + '\'' +
-                ", Direccion='" + Direccion + '\'' +
-                ", Telefono='" + Telefono + '\'' +
-                ", Correo='" + Correo + '\'' +
+                ", Nombre='" + nombre + '\'' +
+                ", Apellido='" + apellido + '\'' +
+                ", Pais='" + pais + '\'' +
+                ", Direccion='" + direccion + '\'' +
+                ", Telefono='" + telefono + '\'' +
+                ", Correo='" + correo + '\'' +
                 '}';
     }
 }
