@@ -52,14 +52,17 @@ public class FacturaRepositorioTestIntegracion {
     public void save(){
         Optional<Cliente> cliente = clienteRepositorio.findById(1);
         Factura factura = new Factura(0,"FAC-000099",  new Date(),100.00,15.00,115.00,cliente.orElse(null));
-        facturaRepositorio.save(factura);
+        Factura facturaGuardada = facturaRepositorio.save(factura);
+        assertNotNull(facturaGuardada);
+        assertEquals("FAC-000099",facturaGuardada.getNumFactura());
+        assertEquals(115.0,facturaGuardada.getTotal());
 
     }
 
     //Actualizar cambiando cliente
     @Test
     public void update(){
-        Optional<Factura> factura = facturaRepositorio.findById(87);
+        Optional<Factura> factura = facturaRepositorio.findById(90);//ver en msql cual es la factura que queremos actualizar
         Optional<Cliente> cliente = clienteRepositorio.findById(2);
         factura.orElse(null).setNumFactura("FAC-0100");
         factura.orElse(null).setFecha(new Date());
@@ -68,14 +71,20 @@ public class FacturaRepositorioTestIntegracion {
         factura.orElse(null).setTotal(230.00);
         factura.orElse(null).setCliente(cliente.orElse(null));
 
-        facturaRepositorio.save(factura.orElse(null));
+        Factura facturaActualizada = facturaRepositorio.save(factura.orElse(null));
+
+        assertNotNull(facturaActualizada);
+        assertEquals("FAC-0100",facturaActualizada.getNumFactura());
+        assertEquals(230.0,facturaActualizada.getTotal());
 
     }
+    //eliminar
     @Test
     public void delete(){
-        if(facturaRepositorio.existsById(88)){
-            facturaRepositorio.deleteById(88);
+        if(facturaRepositorio.existsById(90)){
+            facturaRepositorio.deleteById(90);
         }
+        assertFalse(facturaRepositorio.existsById(90));
     }
 
 
