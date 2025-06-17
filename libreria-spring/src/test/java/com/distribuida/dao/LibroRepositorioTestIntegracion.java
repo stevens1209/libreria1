@@ -63,7 +63,7 @@ public class LibroRepositorioTestIntegracion {
 
     //Actualizar
     @Test
-    public void update () {
+    public void update() {
         Optional<Libro> libro = libroRepositorio.findById(79);
         Optional<Categoria> categoria = categoriaRepositorio.findById(2);
         Optional<Autor> autor = autorRepositorio.findById(2);
@@ -84,8 +84,21 @@ public class LibroRepositorioTestIntegracion {
         libro.orElse(null).setCategoria(categoria.orElse(null));
         libro.orElse(null).setAutor(autor.orElse(null));
 
-
         Libro libroActualizado = libroRepositorio.save(libro.orElse(null));
+        assertNotNull(libroActualizado);
+        assertEquals("Amor", libroActualizado.getTitulo());
+        assertEquals("Natan", libroActualizado.getEditorial());
     }
+    //Eliminar
+    @Test
+    public void delete(){
+        if(libroRepositorio.existsById(80)){
+            libroRepositorio.deleteById(80);
+        }
+        assertFalse(libroRepositorio.existsById(90));
+    }
+
+
 }
+
 
