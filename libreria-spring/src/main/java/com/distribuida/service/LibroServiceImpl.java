@@ -1,5 +1,4 @@
 package com.distribuida.service;
-
 import com.distribuida.dao.LibroRepositorio;
 import com.distribuida.model.Libro;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +49,8 @@ public class LibroServiceImpl implements LibroService {
         libroExistente.setPortada(libro.getPortada());
         libroExistente.setPresentacion(libro.getPresentacion());
         libroExistente.setPrecio(libro.getPrecio());
-        libroExistente.setIdCategoria(libro.getIdCategoria());
-        libroExistente.setIdAutor(libro.getIdAutor());
+        libroExistente.setCategoria(libro.getCategoria());
+        libroExistente.setAutor(libro.getAutor());
 
         return libroRepositorio.save(libroExistente);
     }
