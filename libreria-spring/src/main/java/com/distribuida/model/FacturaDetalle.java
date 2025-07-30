@@ -8,7 +8,7 @@ public class FacturaDetalle {
     private Factura factura;
     private Libro libro;
 
-    public FacturaDetalle() {
+    public FacturaDetalle(int i, int i1, float v, Factura factura, Libro libro) {
     }
 
     public FacturaDetalle(int idFacturaDetalle, int cantidad, Float subtotal) {
