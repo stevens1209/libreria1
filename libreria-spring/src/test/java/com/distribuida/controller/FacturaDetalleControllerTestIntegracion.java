@@ -33,7 +33,7 @@ public class FacturaDetalleControllerTestIntegracion {
     private ObjectMapper objectMapper;
 
     @Test
-    public void testFinAll() throws Exception {
+    public void testFindAll() throws Exception {
         FacturaDetalle facturaDetalle = new FacturaDetalle(1, 15, 15.11F,new Factura(),new Libro());
         Mockito.when(facturaDetalleService.findAll()).thenReturn(List.of(facturaDetalle));
 

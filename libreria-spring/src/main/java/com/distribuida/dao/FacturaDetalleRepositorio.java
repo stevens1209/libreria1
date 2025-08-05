@@ -10,7 +10,7 @@ public interface FacturaDetalleRepositorio extends JpaRepository<FacturaDetalle,
 
 
 
-    public FacturaDetalle findByCantidad(String cantidad);
+    public FacturaDetalle findByCantidad(int cantidad);
 
 
 

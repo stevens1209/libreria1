@@ -1,5 +1,7 @@
 package com.distribuida.controller;
+import com.distribuida.model.Factura;
 import com.distribuida.model.FacturaDetalle;
+import com.distribuida.model.Libro;
 import com.distribuida.service.FacturaDetalleService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

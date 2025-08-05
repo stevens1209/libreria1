@@ -11,7 +11,7 @@ public class WebConfig {
 @Bean
     public WebMvcConfigurer corsConfigurer(){
     return new WebMvcConfigurer() {
-        public void addCorsMapping(CorsRegistry corsRegistry){
+        public void addCorsMappings(CorsRegistry corsRegistry){
             corsRegistry.addMapping("/**")
                     .allowedOrigins("http://localhost:4200")
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
