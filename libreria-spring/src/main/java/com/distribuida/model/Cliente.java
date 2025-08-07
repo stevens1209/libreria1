@@ -30,8 +30,8 @@ public class Cliente {
     }
 
     //constructor con parametros
-    public Cliente(int inCliente, String cedula, String nombre, String apellido, String direccion, String telefono, String correo) {
-        this.idCliente = inCliente;
+    public Cliente(int idCliente, String cedula, String nombre, String apellido, String direccion, String telefono, String correo) {
+        this.idCliente = idCliente;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -41,12 +41,12 @@ public class Cliente {
     }
 
     //Metodos getter and setter
-    public int getInCliente() {
+    public int getIdCliente() {
         return idCliente;
     }
 
-    public void setInCliente(int inCliente) {
-        this.idCliente = inCliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getCedula() {
@@ -101,7 +101,7 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "inCliente=" + idCliente +
+                "idCliente=" + idCliente +
                 ", cedula='" + cedula + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +

@@ -50,7 +50,7 @@ public class ClienteRepositorioTestIntegracion {
     public void save(){
         Cliente cliente =new Cliente(0,"1726695396","Steven","Simbana","Lumbisi","0984241253","simbaa@ismac.edu");
         Cliente clienteGuardado = clienteRepositorio.save(cliente);
-        assertNotNull(clienteGuardado.getInCliente(),"El cliente guardado debe tener un Id");
+        assertNotNull(clienteGuardado.getIdCliente(),"El cliente guardado debe tener un Id");
         assertEquals("1726695396",clienteGuardado.getCedula());
     assertEquals("Steven",clienteGuardado.getNombre());
 

@@ -33,7 +33,7 @@ public class FacturaControllerTestUnitario {
         MockitoAnnotations.openMocks(this);
 
         cliente = new Cliente();
-        cliente.setInCliente(1);
+        cliente.setIdCliente(1);
         cliente.setCedula("1234567890");
         cliente.setNombre("Juan");
         cliente.setApellido("Pérez");

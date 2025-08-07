@@ -32,7 +32,7 @@ public class AutorControllerTestIntegracion {
     private ObjectMapper objectMapper;
 
     @Test
-    public void testFinAll() throws Exception {
+    public void testFindAll() throws Exception {
         Autor autor = new Autor(1,"Michael","Caiza","Ecuador","Tumbaco","0988389144","example@gmail.com");
         Mockito.when(autorService.findAll()).thenReturn(List.of(autor));
 

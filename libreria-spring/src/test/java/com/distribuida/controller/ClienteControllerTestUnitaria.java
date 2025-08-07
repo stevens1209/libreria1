@@ -31,7 +31,7 @@ public class ClienteControllerTestUnitaria {
         MockitoAnnotations.openMocks(this);
 
         cliente = new Cliente();
-        cliente.setInCliente(1);
+        cliente.setIdCliente(1);
         cliente.setCedula("17266556555");
         cliente.setNombre("Stev");
         cliente.setApellido("Simbaa");
