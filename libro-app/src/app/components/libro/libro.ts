@@ -1,4 +1,3 @@
-
 import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Libro } from '../../model/libro.model';
 import { Autor } from '../../model/autor.model';
@@ -14,8 +13,8 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { BehaviorSubject } from 'rxjs';
 import { NgForm } from '@angular/forms';
-import { LIVE_ANNOUNCER_DEFAULT_OPTIONS } from '@angular/cdk/a11y';
 import { DatePipe } from '@angular/common';
+import { LIVE_ANNOUNCER_DEFAULT_OPTIONS } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-libro',
@@ -156,42 +155,27 @@ export class LibroComponent implements OnInit {
     return `${autor.nombre} ${autor.apellido}`;
   }
 
-  abrirModal(libro?: Libro): void {
-  if (libro) {
-    this.libro = { ...libro };
+  abrirModal(libro?: Libro): void{
+    if(libro){
+      this.libro = {...libro};
 
-    // Formatear fecha si existe
-    if (this.libro.fechaPublicacion) {
-      this.libro.fechaPublicacion = this.datePipe.transform(
-        this.libro.fechaPublicacion,
-        'yyyy-MM-dd' // formato para input type="date"
-      ) as any;
-    }
-
-    // Cargar previsualización de imagen si existe
-    if (this.libro.portada) {
-      this.imagenPreview = this.libro.portada.startsWith('http')
-        ? this.libro.portada
-        : `http://localhost:8080/${this.libro.portada}`;
-    } else {
-      this.imagenPreview = '';
-    }
-
-    this.editar = true;
-    this.idEditar = libro.idLibro;
-  } else {
+      if(this.libro.fechaPublicacion){
+        this.libro.fechaPublicacion = this.datePipe.transform(
+          this.libro.fechaPublicacion, 'yyyy-MM-dd'
+        ) as any;
+      }
+      this.editar = true;
+      this.idEditar = libro.idLibro;
+  }else{
     this.libro = {} as Libro;
-    this.imagenPreview = '';
     this.editar = false;
-    this.idEditar = null;
+    this.idEditar= null;
   }
-
   this.dialog.open(this.modalLibro, {
     width: '800px',
     disableClose: true
   });
 }
-
 
 compararAutores(a1: Autor, a2: Autor): boolean{
   return a1 && a2 ? a1.idAutor === a2.idAutor : a1 === a2;
@@ -221,21 +205,16 @@ subirImagen(): void{
 }
 
 abrirModalDetalles(libro: Libro): void {
-  this.libroSeleccionado = { ...libro };
-
-  // Formatear fecha para mostrarla bonita en el modal
-  if (this.libroSeleccionado.fechaPublicacion) {
-    this.libroSeleccionado.fechaPublicacion = this.datePipe.transform(
-      this.libroSeleccionado.fechaPublicacion,
-      'dd/MM/yyyy'
-    ) as any;
-  }
-
+  this.libroSeleccionado = libro;
+  if(this.libroSeleccionado.fechaPublicacion){
+        this.libroSeleccionado.fechaPublicacion = this.datePipe.transform(
+          this.libroSeleccionado.fechaPublicacion, 'yyyy-MM-dd'
+        ) as any;
+      }
   this.dialog.open(this.modalDetalles, {
     width: '500px'
   });
 }
-
 
 cerrarModal(): void{
   this.dialog.closeAll();
